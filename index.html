@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Comisión</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <style>
+        html {
+            background-color: #f5f5f5;
+        }
+       
+        body {
+            box-shadow: 2px 2px 2px 1.5px #000000dd;
+            border-radius: .5em;
+            width: 20em;
+            margin: calc(50% - 9em) auto;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+
+            h2 {
+                color: rgb(104, 38, 38);
+                letter-spacing: 2px;
+                text-shadow: 0 0 2px #000000dd;
+                font-weight: 200;
+            }
+            h3{
+               color: red;
+               text-shadow: 0px 0px 2px #000000dd;
+               letter-spacing: 3px;
+            }
+        }
+        input, button {
+            margin: 10px;
+            padding: 1em 2em;
+            font-size: 16px;
+            color: blue;
+            font-weight: 600;
+        }
+    </style> -->
+</head>
+<body>
+    <h2>Calculadora de Comisión</h2>
+    <label>Precio de la propiedad (€):</label>
+    <input type="number" id="precio" placeholder="Ingrese el precio">
+    <br>
+    <label>Porcentaje de comisión (%):</label>
+    <input type="number" id="porcentaje" placeholder="Ingrese el porcentaje">
+    <br>
+    <button onclick="calcularComision()">Calcular Comisión</button>
+    <h3 id="resultado"><span>Comisión: €0.00</span></h3>
+
+    <script>
+        function calcularComision() {
+            let precio = parseFloat(document.getElementById("precio").value);
+            let porcentaje = parseFloat(document.getElementById("porcentaje").value);
+            if (!isNaN(precio) && !isNaN(porcentaje)) {
+                let comision = (precio * porcentaje) / 100;
+                document.getElementById("resultado").innerText = "Comisión: €" + comision.toFixed(2);
+            } else {
+                document.getElementById("resultado").innerText = "Ingrese valores válidos.";
+            }
+        }
+    </script>
+</body>
+</html>
